@@ -1,6 +1,6 @@
 {
   "name": "Sir-Aza Chrome Extension",
-  "version": "1.0",
+  "version": "0.1.0",
   "description": "Sir-Aza Chrome Extension!",
   "permissions": ["notifications","activeTab", "tabs"],
   "background": {
