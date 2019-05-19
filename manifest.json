@@ -9,17 +9,15 @@
   "browser_action": {
     "default_popup": "popup.html",
     "default_title": "Sir-Aza Chrome Extension",
-    "default_icon": {
-      "128": "images/icon-128x128.png"
-    }
-  },
-  "icons": {
-    "128": "images/icon-128x128.png"
+    "default_icon": "images/icon.png"
   },
   "web_accessible_resources": [
-    "images/icon-128x128.png",
+    "images/icon.png",
     "images/icon-green.png",
     "images/icon-red.png"
   ],
+  "icons": {
+    "128": "images/icon.png"
+  },
   "manifest_version": 2
 }
