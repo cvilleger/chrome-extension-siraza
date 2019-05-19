@@ -2,7 +2,7 @@
   "name": "Sir-Aza Chrome Extension",
   "version": "0.1.0",
   "description": "Sir-Aza Chrome Extension!",
-  "permissions": ["notifications","activeTab", "tabs"],
+  "permissions": ["notifications"],
   "background": {
     "scripts": ["background.js"]
   },
@@ -16,5 +16,10 @@
   "icons": {
     "128": "images/icon-128x128.png"
   },
+  "web_accessible_resources": [
+    "images/icon-128x128.png",
+    "images/icon-green.png",
+    "images/icon-red.png"
+  ],
   "manifest_version": 2
 }
