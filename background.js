@@ -1,13 +1,14 @@
 const tickRate = 60000; // 1min
 const xhr = new XMLHttpRequest();
+sessionStorage.setItem('status', 'offline');
 
-function notify() {
+function notify(title) {
   if (Notification.permission === "granted") {
-    new Notification("Sir-Aza is now live !");
+    new Notification(title);
   } else {
     Notification.requestPermission().then(function (permission) {
       if (permission === "granted") {
-        new Notification("Sir-Aza is now live !");
+        new Notification(title);
       }
     });
   }
@@ -21,9 +22,15 @@ function checkStream() {
       let data = JSON.parse(xhr.responseText);
       if(data["data"].length > 0){
         chrome.browserAction.setIcon({path:"images/icon-green.png"});
-        // notify();
+        if ('offline' === sessionStorage.getItem('status')){
+          notify('Sir-Aza is now live !');
+          sessionStorage.setItem('status', 'live');
+        }
       }else{
         chrome.browserAction.setIcon({path:"images/icon-red.png"});
+        if ('live' === sessionStorage.getItem('status')){
+          sessionStorage.setItem('status', 'offline');
+        }
       }
       setTimeout(checkStream, tickRate)
     }
