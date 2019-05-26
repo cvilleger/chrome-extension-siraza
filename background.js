@@ -2,13 +2,21 @@ const tickRate = 60000; // 1min
 const xhr = new XMLHttpRequest();
 sessionStorage.setItem('status', 'offline');
 
-function notify(title) {
+function notify(title, body) {
   if (Notification.permission === "granted") {
-    new Notification(title);
+    let notif = new Notification(title, {body: body, icon: 'images/icon.png'});
+    notif.onclick = function(event) {
+      event.preventDefault();
+      window.open('https://www.twitch.tv/siraza', '_blank');
+    }
   } else {
     Notification.requestPermission().then(function (permission) {
       if (permission === "granted") {
-        new Notification(title);
+        let notif = new Notification(title, {body: body, icon: 'images/icon.png'});
+        notif.onclick = function(event) {
+          event.preventDefault();
+          window.open('https://www.twitch.tv/siraza', '_blank');
+        }
       }
     });
   }
@@ -23,7 +31,7 @@ function checkStream() {
       if(data["data"].length > 0){
         chrome.browserAction.setIcon({path:"images/icon-green.png"});
         if ('offline' === sessionStorage.getItem('status')){
-          notify('Sir-Aza is now live !');
+          notify('Sir-Aza est en direct !', 'Regarder le stream de Sir-Aza !');
           sessionStorage.setItem('status', 'live');
         }
       }else{
