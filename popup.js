@@ -3,12 +3,19 @@
 const xhr = new XMLHttpRequest();
 
 function reqListener () {
-    let data = JSON.parse(this.response)['data'];
-
+    let data = JSON.parse(this.response).data;
+    console.log(data);
+    let statusImg = document.querySelector('#title img');
     if (0 === data.length){
-        document.querySelector('#title img').src = 'images/icon-red.png';
+        console.log('off');
+        statusImg.src = 'images/icon-red.png';
     } else {
-        document.querySelector('#title img').src = 'images/icon-green.png';
+        statusImg.src = 'images/icon-green.png';
+        data = data['0'];
+        console.log(data.title);
+        console.log(data.game_id);
+        console.log(data.viewer_count);
+        console.log(data.thumbnail_url);
     }
 }
 
