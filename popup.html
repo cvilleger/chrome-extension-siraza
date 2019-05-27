@@ -3,19 +3,24 @@
   <head>
     <style type="text/css">
       body {
-        margin: 0;
-        background: #2b2b2b;
-      }
-      #mainPopup {
-        width: 350px;
         font-family: Helvetica, Ubuntu, Arial, sans-serif;
+        background: #2b2b2b;
+        width: max-content;
+        height: auto;
+      }
+      #title {
+        text-align: center;
+      }
+      #title img {
+        vertical-align: bottom;
+        width: 32px;
       }
     </style>
   </head>
   <body>
-    <div id="mainPopup">
-      <iframe src="http://streambadge.com/twitch/dark/siraza/" style="border:none;height:64px;width:100%;"></iframe>
-    </div>
-    <script src="popup.js"></script>
+  <div id="title">
+    <h1><img src="images/icon.png"> Sir-Aza</h1>
+  </div>
+  <script src="popup.js"></script>
   </body>
 </html>
